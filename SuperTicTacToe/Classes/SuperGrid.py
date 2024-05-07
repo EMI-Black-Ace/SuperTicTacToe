@@ -1,11 +1,12 @@
 from Classes.Grid import Grid
 from Classes.PlayerMove import PlayerMove
+from Classes.SttPlayer import ConsolePlayer, EasyAIPlayer, GetPlayer
 
 
 class SuperGrid(object):
     
-    def __init__(self):
-        self.player = PlayerMove(self)
+    def __init__(self, xplayer, oplayer):
+        self.player = PlayerMove(self, GetPlayer('X', xplayer, self), GetPlayer('O', oplayer, self))
         self.winner = None
         self.gameOver = False
         self.grids = [Grid() for i in range(9)]

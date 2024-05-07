@@ -1,21 +1,22 @@
+from Classes.SttExceptions import *
 from Classes.SuperGrid import SuperGrid
-from Classes.InvalidMove import *
 
 print("Welcome to Super Tic Tac Toe!")
-game = SuperGrid()
+xplayer = input("Who's playing X? (player, CPU): ")
+oplayer = input("Who's playing O? (player, CPU): ")
+game = SuperGrid(xplayer, oplayer)
 while not game.gameOver:
     print(game)
-    command = input(f"{game.player.OwnerTurn}'s Move (grid, tile): ")
     try:
-        action = [int(i) for i in command.split(',')]
-        game.player.ClaimTile(action[0], action[1])
+        game.player.ClaimTile()
     except InvalidMove:
         print("Invalid move.\n" + \
               "The tile the previous player selected corresponds to which grid you must make your move in, unless you cannot make a move in that grid.\n" + \
               "In such a case, you can select a move in any grid.\n" + \
               "A move cannot be to an occupied space or a won or completed subgrid.")
         continue
-    except:
+    except Exception as ex:
+        print(ex)
         confirmQuit = input("Do you want to quit? y/n: ")
         if confirmQuit.lower()[0] == 'y':
             print("Maybe next time we'll finish?")

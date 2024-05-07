@@ -22,8 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\Grid.py" />
-    <Compile Include="Classes\InvalidMove.py" />
+    <Compile Include="Classes\SttExceptions.py" />
     <Compile Include="Classes\PlayerMove.py" />
+    <Compile Include="Classes\SttPlayer.py" />
     <Compile Include="Classes\SuperGrid.py" />
     <Compile Include="Classes\Tile.py" />
     <Compile Include="SuperTicTacToe_console.py" />
